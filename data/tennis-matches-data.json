@@ -1,0 +1,55 @@
+[
+  {
+    "scoreStringSide1": "6-4, 5-3",
+    "scoreStringSide2": "4-6, 3-5",
+    "side1PointScore": "0",
+    "side2PointScore": "0",
+    "sets": [
+      {
+        "setNumber": 1,
+        "side1Score": 6,
+        "side2Score": 4
+      },
+      {
+        "setNumber": 2,
+        "side1Score": 5,
+        "side2Score": 3
+      }
+    ],
+    "server": {
+      "sideNumber": 1,
+      "playerNumber": 1,
+      "returningSide": "right"
+    },
+    "player1Name": "Roger Federer",
+    "player2Name": "Rafael Nadal",
+    "scoreboardId": "iy07RoDm",
+    "id": "1",
+    "createdAt": "2025-09-06T17:12:22.855Z",
+    "updatedAt": "2025-09-06T17:14:06.744Z"
+  },
+  {
+    "scoreStringSide1": "3-2",
+    "scoreStringSide2": "2-3",
+    "side1PointScore": "0",
+    "side2PointScore": "15",
+    "sets": [
+      {
+        "setNumber": 1,
+        "side1Score": 3,
+        "side2Score": 2
+      }
+    ],
+    "server": {
+      "sideNumber": 2,
+      "playerNumber": 1,
+      "returningSide": "left"
+    },
+    "player1Name": "Novak Djokovic",
+    "player2Name": "Andy Murray",
+    "scoreboardId": "suIEfJkZ",
+    "id": "2",
+    "createdAt": "2025-09-06T17:13:51.453Z",
+    "updatedAt": "2025-09-06T17:14:12.901Z"
+  }
+]
