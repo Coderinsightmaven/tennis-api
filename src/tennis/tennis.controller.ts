@@ -2,11 +2,15 @@ import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nes
 import { TennisService } from './tennis.service';
 import type { TennisMatch } from './tennis.interface';
 import { ApiKeyGuard } from '../auth/api-key.guard';
+import { WebSocketGatewayService } from '../websocket/websocket.gateway';
 
 @Controller('tennis')
 @UseGuards(ApiKeyGuard)
 export class TennisController {
-  constructor(private readonly tennisService: TennisService) {}
+  constructor(
+    private readonly tennisService: TennisService,
+    private readonly webSocketGateway: WebSocketGatewayService,
+  ) {}
 
   @Get()
   async findAll(): Promise<TennisMatch[]> {
@@ -52,7 +56,10 @@ export class TennisController {
       scoreboardId: matchData.scoreboardId,
     };
 
-    return this.tennisService.create(transformedData);
+    const match = await this.tennisService.create(transformedData);
+    // Emit WebSocket event for real-time updates
+    this.webSocketGateway.emitTennisMatchCreated(match);
+    return match;
   }
 
   @Put(':id')
@@ -83,12 +90,21 @@ export class TennisController {
       scoreboardId: matchData.scoreboardId,
     };
 
-    return this.tennisService.update(id, transformedData);
+    const match = await this.tennisService.update(id, transformedData);
+    if (match) {
+      // Emit WebSocket event for real-time updates
+      this.webSocketGateway.emitTennisMatchUpdated(match);
+    }
+    return match;
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string): Promise<{ success: boolean; message: string }> {
     const success = await this.tennisService.delete(id);
+    if (success) {
+      // Emit WebSocket event for real-time updates
+      this.webSocketGateway.emitTennisMatchDeleted(id);
+    }
     return {
       success,
       message: success ? 'Match deleted successfully' : 'Match not found'

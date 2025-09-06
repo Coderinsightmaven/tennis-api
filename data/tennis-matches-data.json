@@ -51,5 +51,23 @@
     "id": "2",
     "createdAt": "2025-09-06T17:13:51.453Z",
     "updatedAt": "2025-09-06T17:14:12.901Z"
+  },
+  {
+    "scoreStringSide1": "0-0",
+    "scoreStringSide2": "0-0",
+    "side1PointScore": "40",
+    "side2PointScore": "0",
+    "sets": [],
+    "server": {
+      "sideNumber": 1,
+      "playerNumber": 1,
+      "returningSide": "right"
+    },
+    "player1Name": "Roger Federer",
+    "player2Name": "Rafael Nadal",
+    "scoreboardId": "r7cnUZLv",
+    "id": "3",
+    "createdAt": "2025-09-06T22:55:50.651Z",
+    "updatedAt": "2025-09-06T22:56:27.649Z"
   }
 ]

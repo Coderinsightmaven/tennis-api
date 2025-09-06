@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { ScoreboardsController } from './scoreboards.controller';
 import { ScoreboardsService } from './scoreboards.service';
 import { TennisModule } from '../tennis/tennis.module';
+import { WebSocketModule } from '../websocket/websocket.module';
 
 @Module({
-  imports: [TennisModule],
+  imports: [TennisModule, forwardRef(() => WebSocketModule)],
   controllers: [ScoreboardsController],
   providers: [ScoreboardsService],
   exports: [ScoreboardsService],
