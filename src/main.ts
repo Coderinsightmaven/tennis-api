@@ -7,7 +7,7 @@ async function bootstrap() {
 
   // Enable CORS for development
   app.enableCors({
-    origin: ['http://localhost:1420', 'http://localhost:3000', 'tauri://localhost'],
+    origin: ['http://localhost:1420', 'http://localhost:3000', 'http://localhost:3001', 'tauri://localhost'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'x-api-key'],
   });

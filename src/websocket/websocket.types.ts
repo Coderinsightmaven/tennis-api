@@ -9,6 +9,7 @@ export enum WebSocketEvents {
   SCOREBOARD_CREATED = 'scoreboard:created',
   SCOREBOARD_UPDATED = 'scoreboard:updated',
   SCOREBOARD_DELETED = 'scoreboard:deleted',
+  SCOREBOARDS_UPDATED = 'scoreboards:updated',
 
   // Tennis match events
   TENNIS_MATCH_CREATED = 'tennis:match:created',

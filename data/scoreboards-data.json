@@ -1,14 +1,18 @@
 [
   {
-    "id": "r7cnUZLv",
+    "id": "test-1",
+    "name": "Test Court 1"
+  },
+  {
+    "id": "test-2",
+    "name": "Test Court 2"
+  },
+  {
+    "id": "test-3",
+    "name": "Test Court 3"
+  },
+  {
+    "id": "lNbbV5xd",
     "name": "Stadium"
-  },
-  {
-    "id": "rUMrMy1d",
-    "name": "Test Scoreboard"
-  },
-  {
-    "id": "GP882Q9H",
-    "name": "Live Court"
   }
 ]

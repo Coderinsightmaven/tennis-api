@@ -69,5 +69,133 @@
     "id": "3",
     "createdAt": "2025-09-06T22:55:50.651Z",
     "updatedAt": "2025-09-06T22:56:27.649Z"
+  },
+  {
+    "scoreStringSide1": "6-4, 5-3",
+    "scoreStringSide2": "4-6, 3-5",
+    "side1PointScore": "0",
+    "side2PointScore": "0",
+    "sets": [
+      {
+        "setNumber": 1,
+        "side1Score": 6,
+        "side2Score": 4
+      },
+      {
+        "setNumber": 2,
+        "side1Score": 5,
+        "side2Score": 3
+      }
+    ],
+    "server": {
+      "sideNumber": 1,
+      "playerNumber": 1,
+      "returningSide": "right"
+    },
+    "player1Name": "Roger Federer",
+    "player2Name": "Rafael Nadal",
+    "scoreboardId": "court-1",
+    "id": "4",
+    "createdAt": "2025-09-08T17:20:45.185Z",
+    "updatedAt": "2025-09-08T17:21:46.645Z"
+  },
+  {
+    "scoreStringSide1": "6-4, 3-6, 7-5",
+    "scoreStringSide2": "4-6, 6-3, 5-7",
+    "side1PointScore": "30",
+    "side2PointScore": "15",
+    "sets": [
+      {
+        "setNumber": 1,
+        "side1Score": 6,
+        "side2Score": 4,
+        "winningSide": 1
+      },
+      {
+        "setNumber": 2,
+        "side1Score": 3,
+        "side2Score": 6,
+        "winningSide": 2
+      },
+      {
+        "setNumber": 3,
+        "side1Score": 7,
+        "side2Score": 5,
+        "winningSide": 1
+      }
+    ],
+    "server": {
+      "sideNumber": 1,
+      "playerNumber": 1,
+      "returningSide": "2"
+    },
+    "player1Name": "Roger Federer",
+    "player2Name": "Rafael Nadal",
+    "scoreboardId": "YjaArSTg",
+    "id": "5",
+    "createdAt": "2025-09-08T18:24:01.407Z",
+    "updatedAt": "2025-09-08T18:24:21.244Z"
+  },
+  {
+    "scoreStringSide1": "6-4, 3-6",
+    "scoreStringSide2": "4-6, 6-3",
+    "side1PointScore": "30",
+    "side2PointScore": "15",
+    "sets": [
+      {
+        "setNumber": 1,
+        "side1Score": 6,
+        "side2Score": 4,
+        "winningSide": 1
+      },
+      {
+        "setNumber": 2,
+        "side1Score": 3,
+        "side2Score": 6,
+        "winningSide": 2
+      }
+    ],
+    "server": {
+      "sideNumber": 1,
+      "playerNumber": 1,
+      "returningSide": "2"
+    },
+    "player1Name": "Roger fda",
+    "player2Name": "Rafael Nadal",
+    "scoreboardId": "test-1",
+    "id": "6",
+    "createdAt": "2025-09-08T18:53:12.830Z",
+    "updatedAt": "2025-09-08T19:19:24.980Z"
+  },
+  {
+    "scoreStringSide1": "6-4, 3-6",
+    "scoreStringSide2": "4-6, 6-3",
+    "side1PointScore": "40",
+    "side2PointScore": "15",
+    "sets": [
+      {
+        "setNumber": 1,
+        "side1Score": 6,
+        "side2Score": 4,
+        "winningSide": 1
+      },
+      {
+        "setNumber": 2,
+        "side1Score": 3,
+        "side2Score": 6,
+        "winningSide": 2
+      }
+    ],
+    "server": {
+      "sideNumber": 1,
+      "playerNumber": 1,
+      "returningSide": "2"
+    },
+    "player1Name": "Bob Sagget",
+    "player2Name": "Jeff Waldo",
+    "scoreboardId": "lNbbV5xd",
+    "id": "7",
+    "createdAt": "2025-09-08T19:19:47.693Z",
+    "updatedAt": "2025-09-08T19:47:53.286Z"
   }
 ]

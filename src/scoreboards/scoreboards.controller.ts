@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Param, Query, Body, UseGuards, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Query, Body, UseGuards, HttpException, HttpStatus } from '@nestjs/common';
 import { ScoreboardsService } from './scoreboards.service';
 import { TennisService } from '../tennis/tennis.service';
 import type { Scoreboard } from './scoreboard.interface';
@@ -46,6 +46,29 @@ export class ScoreboardsController {
     };
   }
 
+  @Put()
+  async updateAll(@Body() scoreboards: Scoreboard[]): Promise<{ success: boolean; data: Scoreboard[]; message: string }> {
+    try {
+      const updatedScoreboards = await this.scoreboardsService.updateAll(scoreboards);
+      // Emit WebSocket event for real-time updates
+      this.webSocketGateway.emitScoreboardsUpdated(updatedScoreboards);
+      return {
+        success: true,
+        data: updatedScoreboards,
+        message: 'Scoreboards updated successfully'
+      };
+    } catch (error) {
+      throw new HttpException(
+        {
+          success: false,
+          message: error.message || 'Failed to update scoreboards',
+          data: []
+        },
+        HttpStatus.BAD_REQUEST
+      );
+    }
+  }
+
   @Post(':id/tennis')
   async updateTennisMatch(@Param('id') scoreboardId: string, @Body() matchData: any): Promise<TennisMatch> {
     // Validate that the scoreboard exists
@@ -81,14 +104,22 @@ export class ScoreboardsController {
     };
 
     if (existingMatch) {
+      console.log('📝 Updating existing tennis match for scoreboard:', scoreboardId);
       // Update existing match
       const updatedMatch = await this.tennisService.update(existingMatch.id, transformedData);
+      console.log('✅ Tennis match updated:', updatedMatch);
+      console.log('🔍 Updated match scoreboardId:', updatedMatch?.scoreboardId);
+      console.log('🔍 Updated match data keys:', updatedMatch ? Object.keys(updatedMatch) : 'null');
       // Emit WebSocket event for real-time updates
       this.webSocketGateway.emitTennisMatchUpdated(updatedMatch || existingMatch);
       return updatedMatch || existingMatch;
     } else {
+      console.log('📝 Creating new tennis match for scoreboard:', scoreboardId);
       // Create new match
       const newMatch = await this.tennisService.create(transformedData);
+      console.log('✅ Tennis match created:', newMatch);
+      console.log('🔍 New match scoreboardId:', newMatch?.scoreboardId);
+      console.log('🔍 New match data keys:', newMatch ? Object.keys(newMatch) : 'null');
       // Emit WebSocket event for real-time updates
       this.webSocketGateway.emitTennisMatchCreated(newMatch);
       return newMatch;

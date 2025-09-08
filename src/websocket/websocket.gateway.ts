@@ -253,11 +253,21 @@ export class WebSocketGatewayService implements OnGatewayInit, OnGatewayConnecti
     this.emitToAll(WebSocketEvents.SCOREBOARD_DELETED, { id });
   }
 
+  emitScoreboardsUpdated(scoreboards: Scoreboard[]) {
+    this.emitToAll(WebSocketEvents.SCOREBOARDS_UPDATED, scoreboards);
+  }
+
   emitTennisMatchUpdated(match: TennisMatch) {
+    console.log('🚀 Emitting TENNIS_MATCH_UPDATED:', match);
+    console.log('🚀 Match scoreboardId:', match?.scoreboardId);
+    console.log('🚀 Match data keys:', match ? Object.keys(match) : 'null');
     this.emitToAll(WebSocketEvents.TENNIS_MATCH_UPDATED, match);
   }
 
   emitTennisMatchCreated(match: TennisMatch) {
+    console.log('🚀 Emitting TENNIS_MATCH_CREATED:', match);
+    console.log('🚀 Match scoreboardId:', match?.scoreboardId);
+    console.log('🚀 Match data keys:', match ? Object.keys(match) : 'null');
     this.emitToAll(WebSocketEvents.TENNIS_MATCH_CREATED, match);
   }
 

@@ -76,4 +76,25 @@ export class ScoreboardsService implements OnModuleInit {
     }
     return false;
   }
+
+  async updateAll(scoreboards: Scoreboard[]): Promise<Scoreboard[]> {
+    // Validate the input data
+    if (!Array.isArray(scoreboards)) {
+      throw new Error('Scoreboards data must be an array');
+    }
+
+    // Validate each scoreboard has required fields
+    for (const scoreboard of scoreboards) {
+      if (!scoreboard.id || typeof scoreboard.id !== 'string') {
+        throw new Error('Each scoreboard must have a valid id');
+      }
+      if (!scoreboard.name || typeof scoreboard.name !== 'string') {
+        throw new Error('Each scoreboard must have a valid name');
+      }
+    }
+
+    this.scoreboards = [...scoreboards];
+    await this.saveScoreboardsToFile();
+    return this.scoreboards;
+  }
 }
